@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CharacterSelectScreen : MonoBehaviour
@@ -14,6 +15,15 @@ public class CharacterSelectScreen : MonoBehaviour
     public Transform parent;
     public GameObject buttonPrefab;
 
+    public UnityEvent OnCharacterSelected;
+    public static CharacterSelectScreen Instance;
+
+    public List<Button> buttonReferences;
+
+    private void Start()
+    {
+        Instance = this;
+    }
     [ContextMenu("debug")]
     public void InstantiateCharacterSelect()
     {
@@ -27,9 +37,9 @@ public class CharacterSelectScreen : MonoBehaviour
             Image portrait = tmp.GetComponentsInChildren<Image>()[1];
             portrait.sprite = character.characterSprite;
             Button b = tmp.GetComponent<Button>();
-
+            buttonReferences.Add(b);
             b.onClick.AddListener(delegate { SelectCharacter(character); });
-          
+            
         }
     }
 
@@ -37,10 +47,27 @@ public class CharacterSelectScreen : MonoBehaviour
     {
         // character selection is stored
         CharacterSelectSingleton.Instance.SetCharacter(c);
+        OnCharacterSelected?.Invoke();
         // character select menu is disabled
         // transition to our gameplay screen
 
 
+    }
+
+    public void DisableButtons()
+    {
+        foreach(Button b in buttonReferences)
+        {
+            b.enabled = false;
+        }
+    }
+
+    public void EnableButtons()
+    {
+        foreach (Button b in buttonReferences)
+        {
+            b.enabled = true;
+        }
     }
 }
 
