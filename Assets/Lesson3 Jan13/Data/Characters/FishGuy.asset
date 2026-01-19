@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSO
   characterName: Fish Guy
   characterSprite: {fileID: 21300000, guid: 9eaaac0de64abf048ae71b7f22273eb3, type: 3}
-  strength: 1
-  speed: 1
-  durability: 1
+  prefab: {fileID: 3695490375022837240, guid: 90a3babaf150a2147a31d04f036884d3, type: 3}
+  weaponType: 0

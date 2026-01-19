@@ -1,12 +1,14 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class WeaponSelectScreen : MonoBehaviour
 {
     public string[] customizationOptions;
     public GameObject buttonPrefab;
     public Transform parent;
+    public UnityEvent OnWeaponSelected;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class WeaponSelectScreen : MonoBehaviour
 
             Button b = tmp.GetComponent<Button>();
             b.onClick.AddListener(delegate {CharacterSelectSingleton.Instance.SetWeaponType(option); });
+            b.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); }
+                );
         }
     }
 }
