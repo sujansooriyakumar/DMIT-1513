@@ -5,8 +5,6 @@ public class VehicleMovement : MonoBehaviour
 {
     public InputAction movementAction;
     public InputAction rotationAction;
-    public InputAction rotateArms;
-    public InputAction rotateBucket;
 
     public float moveSpeed = 1.0f;
     public float rotationSpeed = 1.0f;
@@ -15,8 +13,7 @@ public class VehicleMovement : MonoBehaviour
 
     float movementDirection;
     float rotationDirection;
-    float armRotationDirection;
-    float bucketRotationDirection;
+
 
     public float maxLinearSpeed;
     public float currentLinearSpeed;
@@ -31,8 +28,7 @@ public class VehicleMovement : MonoBehaviour
     public float currentBucketAngularSpeed;
 
     Rigidbody rb;
-    public Rigidbody armRb;
-    public Rigidbody bucketRB;
+
 
     private const float ACCELERATION_FACTOR = 20f;
     private const float ROTATION_FACTOR = 40f;
@@ -64,16 +60,7 @@ public class VehicleMovement : MonoBehaviour
         rotationDirection = context.ReadValue<float>() * ROTATION_FACTOR;
     }
 
-    private void RotateArms(InputAction.CallbackContext context)
-    {
-
-    }
-
-
-    private void RotateBucket(InputAction.CallbackContext context)
-    {
-
-    }
+ 
 
     private void FixedUpdate()
     {
