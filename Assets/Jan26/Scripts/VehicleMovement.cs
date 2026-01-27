@@ -31,7 +31,7 @@ public class VehicleMovement : MonoBehaviour
 
 
     private const float ACCELERATION_FACTOR = 20f;
-    private const float ROTATION_FACTOR = 40f;
+    private const float ROTATION_FACTOR = 400f;
     void Start()
     {
         movementDirection = 0f;

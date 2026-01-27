@@ -26,8 +26,9 @@ public class HingeControls : MonoBehaviour
     {
         rotationDirection = c.ReadValue<float>();
         if (rotationDirection != 0) OnRotate?.Invoke();
-        else OnStopRotate?.Invoke();
-            JointMotor motor = hinge.motor;
+        else { OnStopRotate?.Invoke(); }
+
+        JointMotor motor = hinge.motor;
         motor.targetVelocity = rotationDirection * rotationSpeed;
         hinge.motor = motor;
     }
