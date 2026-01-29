@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class WeaponSelectScreen : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class WeaponSelectScreen : MonoBehaviour
     public GameObject buttonPrefab;
     public Transform parent;
     public UnityEvent OnWeaponSelected;
-
+    public List<Sprite> sprites = new List<Sprite>();
+    public Sprite swordSprite;
     private void Awake()
     {
         customizationOptions = System.Enum.GetNames(typeof(WeaponType));
@@ -25,6 +28,11 @@ public class WeaponSelectScreen : MonoBehaviour
             t.text = option;
 
             Button b = tmp.GetComponent<Button>();
+            if(t.text == "sword")
+            {
+                b.GetComponentInChildren<Image>().sprite = swordSprite;
+
+            }
             b.onClick.AddListener(delegate {CharacterSelectSingleton.Instance.SetWeaponType(option); });
             b.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); }
                 );
