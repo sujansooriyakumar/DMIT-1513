@@ -8,8 +8,7 @@ public class VehicleMovement : MonoBehaviour
 
     public float moveSpeed = 1.0f;
     public float rotationSpeed = 1.0f;
-    public float armRotationSpeed = 1.0f;
-    public float bucketRotationSpeed = 1.0f;
+
 
     float movementDirection;
     float rotationDirection;
@@ -21,17 +20,12 @@ public class VehicleMovement : MonoBehaviour
     public float maxAngularSpeed;
     public float currentAngularSpeed;
 
-    public float maxArmAngularSpeed;
-    public float currentArmAngularSpeed;
-
-    public float maxBucketAngularSpeed;
-    public float currentBucketAngularSpeed;
 
     Rigidbody rb;
 
 
     private const float ACCELERATION_FACTOR = 20f;
-    private const float ROTATION_FACTOR = 400f;
+    private const float ROTATION_FACTOR = 40f;
     void Start()
     {
         movementDirection = 0f;
