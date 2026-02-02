@@ -27,7 +27,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // transform: holds the player position
         // movementVector: holds the movement direction
-        t.position += movementVector * moveSpeed * Time.deltaTime;
+        //t.position += movementVector * moveSpeed * Time.deltaTime;
+        Vector3 v = GetComponent<Rigidbody>().linearVelocity;
+        v.x = movementVector.x * moveSpeed;
+        v.z = movementVector.z * moveSpeed;
+        GetComponent<Rigidbody>().linearVelocity = v;
     }
 
     

@@ -25,7 +25,7 @@ public class VehicleMovement : MonoBehaviour
 
 
     private const float ACCELERATION_FACTOR = 20f;
-    private const float ROTATION_FACTOR = 40f;
+    private const float ROTATION_FACTOR = 10f;
     void Start()
     {
         movementDirection = 0f;
@@ -62,7 +62,8 @@ public class VehicleMovement : MonoBehaviour
         currentAngularSpeed = rb.angularVelocity.magnitude;
 
         rb.AddForce(transform.forward * movementDirection, ForceMode.Acceleration);
-        rb.AddTorque(Vector3.up * rotationDirection, ForceMode.Acceleration);
+        //rb.AddTorque(Vector3.up * rotationDirection, ForceMode.Acceleration);
+        transform.Rotate(new Vector3(0, rotationDirection, 0));
         //armRb.AddTorque()
         //bucketRB.AddTorque()
         if (currentLinearSpeed > maxLinearSpeed) rb.linearVelocity = rb.linearVelocity.normalized
