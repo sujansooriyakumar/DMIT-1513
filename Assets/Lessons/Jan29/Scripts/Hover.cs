@@ -1,38 +1,85 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class Hover : MonoBehaviour
 {
-    public float antiGravForce;
-    private Rigidbody rb;
-    RaycastHit hit;
-    public float distanceFromGround;
-    float hoverMod;
-    float hoverDecellerate = -0.25f;
+    [Header("Hover Heights")]
+    public float baseHoverHeight = 1.2f;
+    public float maxHoverHeight = 6f;
+    public float riseSpeed = 2.5f;
+
+    [Header("Hover Physics")]
+    public float springStrength = 60f;
+    public float damping = 10f;
+
+    [Header("Input")]
     public InputAction hover;
-    private void Start()
+
+    Rigidbody rb;
+    Collider col;
+
+    float targetHoverHeight;
+    float hoverHeld;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
+        targetHoverHeight = baseHoverHeight;
+    }
 
+    void OnEnable()
+    {
         hover.Enable();
-        hover.performed += HoverInput;
-        hover.canceled += HoverInput;
+        hover.performed += OnHover;
+        hover.canceled += OnHover;
     }
 
-    public void HoverInput(InputAction.CallbackContext c)
+    void OnDisable()
     {
-        hoverMod = c.ReadValue<float>()/2f;
+        hover.performed -= OnHover;
+        hover.canceled -= OnHover;
+        hover.Disable();
     }
 
-    private void FixedUpdate()
+    void OnHover(InputAction.CallbackContext ctx)
     {
-        antiGravForce = rb.mass;
-        distanceFromGround += hoverMod + hoverDecellerate;
-        distanceFromGround = Mathf.Clamp(distanceFromGround, 0.0f, Mathf.Infinity);
-        if(Physics.BoxCast(transform.position + new Vector3(0,transform.localScale.y/2,0),
-            GetComponent<BoxCollider>().bounds.extents, Vector3.down, out hit, transform.rotation, distanceFromGround))
+        hoverHeld = ctx.ReadValue<float>(); // 1 held, 0 released
+    }
+
+    void FixedUpdate()
+    {
+        // Adjust target hover height
+        if (hoverHeld > 0f)
         {
-            rb.AddForce(transform.up * (distanceFromGround - hit.distance) / distanceFromGround * antiGravForce, ForceMode.Impulse);
+            targetHoverHeight += riseSpeed * Time.fixedDeltaTime;
+            targetHoverHeight = Mathf.Clamp(targetHoverHeight, baseHoverHeight, maxHoverHeight);
+        }
+        else
+        {
+            targetHoverHeight = baseHoverHeight;
+        }
+
+        Vector3 origin = transform.position + Vector3.up * col.bounds.extents.y;
+
+        if (Physics.Raycast(origin, Vector3.down, out RaycastHit hit, targetHoverHeight))
+        {
+            float currentHeight = hit.distance;
+            float error = targetHoverHeight - currentHeight;
+
+            float verticalVelocity = Vector3.Dot(rb.linearVelocity, Vector3.up);
+
+            float force =
+                (error * springStrength)
+                - (verticalVelocity * damping);
+
+            // Cancel gravity explicitly
+            if (hoverHeld > 0f)
+            {
+                force += rb.mass * Physics.gravity.magnitude;
+                rb.AddForce(Vector3.up * force, ForceMode.Force);
+            }
 
         }
     }
