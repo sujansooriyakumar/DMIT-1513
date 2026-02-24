@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &199228542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -754,8 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86c33d31bd7869488c4450d6339c867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingGameobject
-  maxMoveRange: {x: 0, y: 10, z: 0}
-  moveSpeed: 10
+  maxMoveRange: {x: 3, y: 0, z: 0}
+  moveSpeed: 3
 --- !u!54 &199228547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -803,7 +803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &513712536
 Transform:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &541654338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 541654336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.08, y: 15.04, z: 22.59}
+  m_LocalPosition: {x: -7.08, y: 12.87, z: 26.82}
   m_LocalScale: {x: 1, y: 4.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1540,7 +1540,7 @@ Transform:
   m_GameObject: {fileID: 772009903}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30867332, y: 0.023134481, z: -0.007510063, w: 0.9508571}
-  m_LocalPosition: {x: -7.34, y: 18.92, z: 17.25}
+  m_LocalPosition: {x: -7.34, y: 16.75, z: 21.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2314,7 +2314,7 @@ Transform:
   m_GameObject: {fileID: 1595236112}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30867335, y: 0.023134485, z: -0.007510065, w: 0.9508571}
-  m_LocalPosition: {x: -7.34, y: 18.92, z: 17.25}
+  m_LocalPosition: {x: -7.34, y: 16.75, z: 21.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
