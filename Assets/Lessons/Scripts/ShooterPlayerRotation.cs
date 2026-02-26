@@ -27,9 +27,18 @@ public class ShooterPlayerRotation : MonoBehaviour
     public void LateUpdate()
     {
         pitch = Mathf.Clamp(pitch, -maxPitch, maxPitch);
-        //Quaternion rotationOffset = Quaternion.Euler(pitch, yaw, 0);
-        transform.rotation = Quaternion.Euler(pitch, yaw, 0);
-       // spine.rotation = Quaternion.Euler(pitch, yaw, 0);
+        if (GetComponent<CameraController>().currentState == CameraState.FIRST_PERSON)
+        {
+
+            //Quaternion rotationOffset = Quaternion.Euler(pitch, yaw, 0);
+            transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+            // spine.rotation = Quaternion.Euler(pitch, yaw, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, yaw, 0);
+             spine.rotation = Quaternion.Euler(pitch, yaw, 0);
+        }
     }
 
 }

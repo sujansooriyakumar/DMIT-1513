@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 3d58fdc0b536ace419b6f92be00fb57a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 3d58fdc0b536ace419b6f92be00fb57a, type: 3}
       propertyPath: m_LocalScale.x
@@ -860,6 +860,7 @@ MonoBehaviour:
       m_Action: Movement Input
       m_Flags: 8
     m_Flags: 0
+  cameraController: {fileID: 799658371}
   movementSpeed: 1
 --- !u!54 &799658364
 Rigidbody:
@@ -948,6 +949,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
   m_PrefabInstance: {fileID: 1075353532}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &799658371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799658360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8715306e2036988468d2d24e57848fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  swapCameraAction:
+    m_Name: Swap Camera
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d3b3d2cc-2965-4e91-b7e8-3159fa5706ba
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: ea240519-e8e9-4472-8f8e-587d7b8c6080
+      m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swap Camera
+      m_Flags: 0
+    m_Flags: 0
+  currentState: 0
+  OnThirdPersonCamActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 840440567}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1614884958}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnFirstPersonCamActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1614884958}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 840440567}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &840440567
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +1052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &840440568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,15 +1518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3321919801592875672, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3321919801592875672, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3321919801592875672, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3321919801592875672, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1457,15 +1542,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1491,17 +1576,29 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6515712193588681746, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515712193588681746, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515712193588681746, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8169382868667117632, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8169382868667117632, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8169382868667117632, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8169382868667117632, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -1538,6 +1635,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 799658368}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 799658371}
   m_SourcePrefab: {fileID: 100100000, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
 --- !u!4 &1153207943 stripped
 Transform:
@@ -1897,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c52425aa7c1a7b849a483f7cc99974de, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c52425aa7c1a7b849a483f7cc99974de, type: 3}
       propertyPath: m_LocalScale.x
@@ -1990,7 +2090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1614884960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,9 +2245,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2173,8 +2273,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964797222}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.000008800916, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18697742, y: 1.57, z: 0.23884298}
+  m_LocalRotation: {x: -0.08576625, y: -0.0000068191016, z: -0.0000036541055, w: 0.9963153}
+  m_LocalPosition: {x: 1.0799952, y: 1.3293837, z: -1.1472769}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

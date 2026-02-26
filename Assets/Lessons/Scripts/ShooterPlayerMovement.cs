@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class ShooterPlayerMovement : MonoBehaviour
 {
     public InputAction movementInput;
+    public CameraController cameraController;
     private Vector2 moveVector;
     private Rigidbody rb;
     private Animator animator;
@@ -24,9 +25,12 @@ public class ShooterPlayerMovement : MonoBehaviour
     private void ReadMoveInput(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
-        //animator.SetBool("isWalking", moveVector.y > 0);
-       // animator.SetBool("isStrafing", Mathf.Abs(moveVector.x) > 0);
-        //animator.SetBool("isWalkingBack", moveVector.y < 0);
+        if (cameraController.currentState == CameraState.THIRD_PERSON)
+        {
+            animator.SetBool("isWalking", moveVector.y > 0);
+            // animator.SetBool("isStrafing", Mathf.Abs(moveVector.x) > 0);
+            animator.SetBool("isWalkingBack", moveVector.y < 0);
+        }
         
     }
 
