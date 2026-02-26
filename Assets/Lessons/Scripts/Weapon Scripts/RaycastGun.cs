@@ -25,13 +25,36 @@ public class RaycastGun : Gun
         while (isFiring)
         {
             RaycastHit hit;
-            Physics.Raycast(bulletSpawnLocation.position, bulletSpawnLocation.forward, out hit, Mathf.Infinity);
-            GetComponent<AudioSource>().PlayOneShot(fireSFX);
-            Debug.DrawRay(bulletSpawnLocation.position, bulletSpawnLocation.forward, Color.red, 3.0f);
-            if (hit.collider != null)
+            Ray screenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Vector3 aimPoint;
+
+            if(Physics.Raycast(screenRay, out RaycastHit screenHit, Mathf.Infinity))
             {
-                hit.collider.gameObject.GetComponent<IDamagable>().TakeDamage(dmg);
+                aimPoint = screenHit.point;
             }
+            else
+            {
+                aimPoint = screenRay.GetPoint(100f);
+            }
+
+            Vector3 shootDirection = (aimPoint - bulletSpawnLocation.position).normalized;
+            Debug.DrawRay(bulletSpawnLocation.position, shootDirection, Color.red, 3.0f);
+
+            if (Physics.Raycast(bulletSpawnLocation.position, shootDirection, out hit, Mathf.Infinity))
+            {
+
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject.GetComponent<IDamagable>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<IDamagable>().TakeDamage(dmg);
+                    }
+                }
+            }
+
+
+            GetComponent<AudioSource>().PlayOneShot(fireSFX);
+            
             yield return new WaitForSeconds(fireRate);
         }
         yield return null;
