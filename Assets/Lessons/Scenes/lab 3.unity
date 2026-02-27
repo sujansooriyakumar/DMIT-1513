@@ -143,12 +143,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135419025}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000022250304, y: 1.1070694, z: -0.0083542615}
+  m_LocalRotation: {x: 0.08576625, y: 0.0000068191002, z: 0.0000036541035, w: 0.9963153}
+  m_LocalPosition: {x: 0.83, y: 0.03871478, z: -0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 799658369}
+  m_Father: {fileID: 1224059141}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154302507
 GameObject:
@@ -943,7 +943,7 @@ MonoBehaviour:
     m_Flags: 0
   sensitivity: 0.1
   maxPitch: 40
-  spine: {fileID: 135419026}
+  spine: {fileID: 1224059141}
 --- !u!4 &799658369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
@@ -1104,8 +1104,8 @@ MonoBehaviour:
   Damping: {x: 0, y: 0.5, z: 0.3}
   ShoulderOffset: {x: 1.08, y: 0.17, z: 0.9}
   VerticalArmLength: 0.4
-  CameraSide: 1
-  CameraDistance: 2
+  CameraSide: 0.966
+  CameraDistance: 2.45
   AvoidObstacles:
     Enabled: 0
     CollisionFilter:
@@ -1166,8 +1166,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840440567}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0799778, y: 1.6770693, z: -1.1083543}
+  m_LocalRotation: {x: 0, y: -0.000008800916, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8365502, y: 1.6778831, z: -2.4313257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1605,8 +1605,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1057470301}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
-      insertIndex: 1
+    - targetCorrespondingSourceObject: {fileID: -8021001004253913084, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 135419026}
     - targetCorrespondingSourceObject: {fileID: 6502182839619065283, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
       insertIndex: -1
@@ -1766,6 +1766,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!4 &1224059141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8021001004253913084, guid: 3f317ef9b69d0c948b9c00e15713f3eb, type: 3}
+  m_PrefabInstance: {fileID: 1075353532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1352725036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,8 +2273,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964797222}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0799778, y: 1.6770693, z: -1.1083543}
+  m_LocalRotation: {x: 0, y: -0.000008800916, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8365502, y: 1.6778831, z: -2.4313257}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
