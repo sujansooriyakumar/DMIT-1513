@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37ae98dd14df4b479845fba73306cb6, type: 3}
   m_Name: enemies killed
   m_EditorClassIdentifier: Assembly-CSharp::IntRequirementSO
-  requirementName: 
+  requirementName: enemies killed
   defaultValue: 0
-  targetValue: 0
+  targetValue: 3

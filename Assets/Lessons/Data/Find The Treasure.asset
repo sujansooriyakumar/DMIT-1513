@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9a72e48cadd924a91b44de17e2d8ae, type: 3}
   m_Name: Find The Treasure
   m_EditorClassIdentifier: Assembly-CSharp::QuestSO
-  questName: 
-  goals: []
+  questName: Find The Treasure
+  goals:
+  - {fileID: 11400000, guid: 30b7afe64221f1c44aa964650c40edd7, type: 2}
+  - {fileID: 11400000, guid: f0e566bbe64779146aee0289aa88205d, type: 2}
+  - {fileID: 11400000, guid: 7c35d5548d147b44ca2171ba1d780375, type: 2}
+  - {fileID: 11400000, guid: 5ab590fcbb98bd04ead1626c7ee25b19, type: 2}
   initialGoalID: 0

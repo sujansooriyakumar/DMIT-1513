@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: G02 - Kill 3 Enemies
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
   requirements: []
-  goalID: 0
-  nextGoalID: 0
+  goalID: 1
+  nextGoalID: 2
