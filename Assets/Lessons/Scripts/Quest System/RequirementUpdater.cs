@@ -29,6 +29,7 @@ public class RequirementUpdater : MonoBehaviour
         }
     }
 
+    [ContextMenu("Update Requirement")]
     public void UpdateRequirement()
     {
         if (GoalManager.instance == null)
@@ -45,6 +46,7 @@ public class RequirementUpdater : MonoBehaviour
                     if(update.requirementSO is BoolRequirementSO boolReq)
                     {
                         GoalManager.instance.SetBoolRequirement(boolReq, update.boolVal);
+                        
                     }
                     break;
                 case UpdateType.IncrementInt:

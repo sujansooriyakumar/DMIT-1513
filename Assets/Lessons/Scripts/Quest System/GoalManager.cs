@@ -30,6 +30,8 @@ public class GoalManager : MonoBehaviour
                 baseData) && baseData is BoolRequirementData reqData)
             {
                 reqData.value = newValue;
+                //UpdateGoal(goalData);
+                Debug.Log("Set value for req: " + reqData + " to " + reqData.value);
             }
         }
     }
@@ -43,9 +45,12 @@ public class GoalManager : MonoBehaviour
                 baseData) && baseData is IntRequirementData reqData)
             {
                 reqData.Increment(increment);
+                //UpdateGoal(goalData);
             }
         }
     }
+
+   
 
     public void ActivateGoal(int goalID)
     {
@@ -54,14 +59,16 @@ public class GoalManager : MonoBehaviour
             goal.onGoalUpdated += UpdateGoal;
             if(goal.goalID == goalID)
             {
+                Debug.Log("Activating goal: " + goal.goalID);
                 goal.ActivateGoal();
+                //RequirementManager.instance.TrackGoal(goal);
             }
         }
     }
 
     public void UpdateGoal(GoalData goalData)
     {
-        if(goalData.isActive && goalData.isComplete)
+        if(goalData.isActive && goalData.isCompleted())
         {
             if(goalData.nextGoalID > -1)
             {
@@ -69,13 +76,15 @@ public class GoalManager : MonoBehaviour
             }
 
             goalData.isActive = false;
-            onGoalComplete(goalData);
+            onGoalComplete?.Invoke(goalData);
+            Debug.Log("Goal Complete: " + goalData.goalID);
         }
     }
 
     public void TrackQuest(QuestData questData)
     {
         goalLibrary.AddRange(questData.goals);
+        Debug.Log("Tracking Quest: " + questData.questName);
         ActivateGoal(questData.initialGoalID);
     }
 }

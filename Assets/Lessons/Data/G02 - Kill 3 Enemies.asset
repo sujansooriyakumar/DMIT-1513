@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894655ebd6f43a54ea369e0f3802cde5, type: 3}
   m_Name: G02 - Kill 3 Enemies
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
-  requirements: []
+  requirements:
+  - {fileID: 11400000, guid: 4ba7b6865b594384188567661d8e046f, type: 2}
+  goalName: 
   goalID: 1
   nextGoalID: 2

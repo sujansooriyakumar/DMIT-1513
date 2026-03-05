@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894655ebd6f43a54ea369e0f3802cde5, type: 3}
   m_Name: G04 - Find The Treasure
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
-  requirements: []
+  requirements:
+  - {fileID: 11400000, guid: 77314cc316f3e4d4f808c84c98395163, type: 2}
+  goalName: 
   goalID: 3
   nextGoalID: -1

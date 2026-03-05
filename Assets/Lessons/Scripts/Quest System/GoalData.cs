@@ -10,6 +10,7 @@ public class GoalData
     public bool isActive;
     public bool isComplete;
     public int goalID;
+    public string goalName;
     public int nextGoalID;
 
     public event Action<GoalData> onGoalComplete;
@@ -20,6 +21,7 @@ public class GoalData
         config = config_;
         isActive = false;
         goalID = config.goalID;
+        goalName = config.goalName;
         nextGoalID = config.nextGoalID;
         foreach(RequirementSO req in config.requirements)
         {

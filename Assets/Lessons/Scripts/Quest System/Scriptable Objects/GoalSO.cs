@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoalSO : ScriptableObject
 {
     public List<RequirementSO> requirements;
+    public string goalName;
     public int goalID;
     public int nextGoalID;
 }

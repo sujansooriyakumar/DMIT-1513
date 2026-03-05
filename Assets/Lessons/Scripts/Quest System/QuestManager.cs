@@ -18,8 +18,10 @@ public class QuestManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
 
+    [ContextMenu ("Initialize Quests")]
     public void InitializeQuestLibrary()
     {
         foreach(QuestSO q in quests)
@@ -30,6 +32,7 @@ public class QuestManager : MonoBehaviour
             questLibrary.Add(q, tmp);
 
         }
+        ActivateQuest(quests[0]);
     }
 
     public void UpdateQuest(QuestData questData)
@@ -46,6 +49,7 @@ public class QuestManager : MonoBehaviour
     public void ActivateQuest(QuestSO quest)
     {
         questLibrary[quest].isActive = true;
+        Debug.Log("Starting quest: " + quest.questName);
         GoalManager.instance.TrackQuest(questLibrary[quest]);
     }
 

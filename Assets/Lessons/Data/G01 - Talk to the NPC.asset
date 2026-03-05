@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894655ebd6f43a54ea369e0f3802cde5, type: 3}
   m_Name: G01 - Talk to the NPC
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
-  requirements: []
+  requirements:
+  - {fileID: 11400000, guid: 9a49e0c9d017a704c953154cc27d45f5, type: 2}
+  goalName: 
   goalID: 0
   nextGoalID: 1

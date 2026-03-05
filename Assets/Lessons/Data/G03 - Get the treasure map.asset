@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894655ebd6f43a54ea369e0f3802cde5, type: 3}
   m_Name: G03 - Get the treasure map
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
-  requirements: []
+  requirements:
+  - {fileID: 11400000, guid: 4e695020ae4b149469ec272daab9f7f7, type: 2}
+  goalName: 
   goalID: 2
   nextGoalID: 3
