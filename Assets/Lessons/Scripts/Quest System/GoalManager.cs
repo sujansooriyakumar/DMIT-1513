@@ -9,7 +9,7 @@ public class GoalManager : MonoBehaviour
     public Dictionary<GoalSO, GoalData> goalLibrary = new();
     public static GoalManager instance;
     public event Action<GoalData> onGoalComplete;
-    private void Awake()
+    private void OnEnable()
     {
         if (instance != null && instance != this)
         {

@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+        InitializeQuestLibrary();
 
     }
 
@@ -32,8 +33,9 @@ public class QuestManager : MonoBehaviour
             questLibrary.Add(q, tmp);
 
         }
-        ActivateQuest(quests[0]);
     }
+
+   
 
     public void UpdateQuest(QuestData questData)
     {

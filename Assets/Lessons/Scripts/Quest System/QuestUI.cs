@@ -16,7 +16,6 @@ public class QuestUI : MonoBehaviour
     public void QuestUpdated(QuestData data)
     {
         questName.text = data.questName;
-        Debug.Log(data.completedGoals);
         questProgress.value = (float)data.completedGoals / (float)data.goals.Values.Count;
         foreach(GoalData goal in data.goals.Values)
         {
