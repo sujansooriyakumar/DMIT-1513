@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9a72e48cadd924a91b44de17e2d8ae, type: 3}
+  m_Name: Q01 - Rescue the Kittens
+  m_EditorClassIdentifier: Assembly-CSharp::QuestSO
+  questName: Rescue the Kittens
+  goals:
+  - {fileID: 11400000, guid: 547eab9427fcb8f4ab52ea24ca3add01, type: 2}
+  - {fileID: 11400000, guid: 676731a906845b1409b669a32e4855bc, type: 2}
+  - {fileID: 11400000, guid: f93a547277a11f142aa7e30c007d84f8, type: 2}
+  initialGoalID: 0
