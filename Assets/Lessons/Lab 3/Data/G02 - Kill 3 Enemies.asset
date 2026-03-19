@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
   requirements:
   - {fileID: 11400000, guid: 4ba7b6865b594384188567661d8e046f, type: 2}
-  goalName: 
+  goalName: kill 3 enemies
   goalID: 1
   nextGoalID: 2

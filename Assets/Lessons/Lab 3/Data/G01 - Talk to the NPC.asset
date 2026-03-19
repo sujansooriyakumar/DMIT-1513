@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GoalSO
   requirements:
   - {fileID: 11400000, guid: 9a49e0c9d017a704c953154cc27d45f5, type: 2}
-  goalName: 
+  goalName: talk to the king
   goalID: 0
   nextGoalID: 1

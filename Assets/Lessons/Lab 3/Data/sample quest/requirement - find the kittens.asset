@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IntRequirementSO
   requirementName: Find the Kittens
   defaultValue: 0
-  targetValue: 5
+  targetValue: 3
