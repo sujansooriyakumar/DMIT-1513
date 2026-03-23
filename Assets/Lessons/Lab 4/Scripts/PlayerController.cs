@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public InputAction movementAction;
     Transform t;
@@ -23,19 +23,14 @@ public class PlayerMovement : MonoBehaviour
         movementVector = new Vector3(tmp.x, 0, tmp.y);
     }
 
-   private void FixedUpdate()
-{
-    Rigidbody rb = GetComponent<Rigidbody>();
-    
-  
-    Vector3 moveDirection = transform.TransformDirection(movementVector);
-
-    Vector3 targetVelocity = moveDirection * moveSpeed;
-
-    Vector3 currentVelocity = rb.linearVelocity;
-    rb.linearVelocity = new Vector3(targetVelocity.x, currentVelocity.y, targetVelocity.z);
-}
-
-
-    
+    private void FixedUpdate()
+    {
+        // transform: holds the player position
+        // movementVector: holds the movement direction
+        //t.position += movementVector * moveSpeed * Time.deltaTime;
+        Vector3 v = GetComponent<Rigidbody>().linearVelocity;
+        v.x = movementVector.x * moveSpeed;
+        v.z = movementVector.z * moveSpeed;
+        GetComponent<Rigidbody>().linearVelocity = v;
+    }
 }

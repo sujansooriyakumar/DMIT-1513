@@ -46,6 +46,7 @@ public class QuestManager : MonoBehaviour
     public void CompleteQuest(QuestData questData)
     {
         questLibrary[questData.Config].isComplete = true;
+        onQuestUpdate?.Invoke(questData);
     }
 
     public void ActivateQuest(QuestSO quest)
