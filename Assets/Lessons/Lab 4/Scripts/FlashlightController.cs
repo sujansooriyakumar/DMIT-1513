@@ -32,6 +32,7 @@ public class FlashlightController : MonoBehaviour
             if (flashlight.enabled)
             {
                 batteryLevel -= usageRate;
+               
                 // drain the battery
             }
 
@@ -42,6 +43,11 @@ public class FlashlightController : MonoBehaviour
             }
 
             batteryLevel = Mathf.Clamp(batteryLevel, 0f, 1f);
+            if (batteryLevel <= 0)
+            {
+                flashlight.enabled = false;
+
+            }
             batteryGauge.value = batteryLevel;
             yield return null; 
         }
