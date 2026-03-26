@@ -17,7 +17,20 @@ public class FlashlightController : MonoBehaviour
         toggleFlashlight.Enable();
         toggleFlashlight.performed += ToggleFlashlight;
         StartCoroutine(BatteryPercentageCoroutine());
+        PauseMenuController.instance.OnPauseToggle += ToggleInput;
 
+    }
+
+    private void ToggleInput(bool pauseState_)
+    {
+        if (pauseState_)
+        {
+            toggleFlashlight.Disable();
+        }
+        else
+        {
+            toggleFlashlight.Enable();
+        }
     }
 
     private void ToggleFlashlight(InputAction.CallbackContext c)
@@ -29,6 +42,7 @@ public class FlashlightController : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(0.1f);
             if (flashlight.enabled)
             {
                 batteryLevel -= usageRate;
